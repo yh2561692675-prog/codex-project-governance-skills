@@ -1,4 +1,4 @@
 interface:
-  display_name: "¿Æ¼¼ĞÅÏ¢°å¶¯»­"
-  short_description: "½«¾²Ì¬¿Æ¼¼ĞÅÏ¢°åÖÆ×÷³ÉÎŞ²ĞÓ°¡¢ÎŞ²ÃÇĞºÚ±ßµÄ³Á½şÊ½×İÉî¶¯»­ÊÓÆµ"
+  display_name: "ç§‘æŠ€ä¿¡æ¯æ¿åŠ¨ç”»"
+  short_description: "å°†é™æ€ç§‘æŠ€ä¿¡æ¯æ¿åˆ¶ä½œæˆæ— æ®‹å½±ã€æ— è£åˆ‡é»‘è¾¹çš„æ²‰æµ¸å¼çºµæ·±åŠ¨ç”»è§†é¢‘"
   default_prompt: "Use $animate-tech-board to turn this static technology information board into a clean Remotion animation."
