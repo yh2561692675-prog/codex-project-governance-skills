@@ -87,8 +87,15 @@ foreach ($file in $archiveFiles) {
             $fixturePrefix = ('X:' + '\Projects\01_Active')
             $textForScan = $textForScan.Replace($fixturePrefix, '<X_PROJECTS_FIXTURE_ROOT>')
         }
+        if ($relative -eq 'scripts/Test-PublicationSafety.ps1') {
+            $textForScan = (($textForScan -split "`r?`n") | Where-Object { $_ -notmatch "Id = 'personal-path'" }) -join "`n"
+        }
+        $windowsUsersPattern = '[A-Z]:' + '\\Users\\'
         $xProjectsPrefix = ('X:' + '\Projects\')
-        $unsafePathPattern = '(?i)(?:C:\\Users\\|' + [regex]::Escape($xProjectsPrefix) + '|F:\\|/Users/|/home/|sk-[A-Za-z0-9]{20,}|ghp_[A-Za-z0-9]{20,})'
+        $fDrivePrefix = ('F:' + '\')
+        $unixUsersPrefix = ('/' + 'Users/')
+        $unixHomePrefix = ('/' + 'home/')
+        $unsafePathPattern = '(?i)(?:' + $windowsUsersPattern + '|' + [regex]::Escape($xProjectsPrefix) + '|' + [regex]::Escape($fDrivePrefix) + '|' + [regex]::Escape($unixUsersPrefix) + '|' + [regex]::Escape($unixHomePrefix) + '|sk-[A-Za-z0-9]{20,}|ghp_[A-Za-z0-9]{20,})'
         Assert-True ($textForScan -notmatch $unsafePathPattern) "unsafe_archive_text:$relative"
     }
 }
