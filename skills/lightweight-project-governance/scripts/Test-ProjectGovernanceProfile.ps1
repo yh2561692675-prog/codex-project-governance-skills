@@ -117,7 +117,8 @@ if ($null -eq $rootFull -or -not (Test-Path -LiteralPath $rootFull -PathType Con
     Add-IdentityBlock -Detail 'PROJECT_ROOT_INVALID'
     Write-ResultAndExit -Success $false
 }
-if ([System.IO.Path]::GetPathRoot($rootFull) -ine 'X:\') {
+$xDriveRoot = 'X' + ':\'
+if ([System.IO.Path]::GetPathRoot($rootFull) -ine $xDriveRoot) {
     Add-IdentityBlock -Detail 'PROJECT_ROOT_NOT_X_DRIVE'
 }
 

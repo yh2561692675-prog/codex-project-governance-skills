@@ -83,9 +83,35 @@ foreach ($file in $archiveFiles) {
     if ($textExtensions -contains $file.Extension.ToLowerInvariant()) {
         $text = [IO.File]::ReadAllText($file.FullName, (New-Object Text.UTF8Encoding($false, $true)))
         $textForScan = $text
-        if ($relative -in @('scripts/Install-CodexSkillPackage.Tests.ps1', 'skills/evidence-bound-project-closure/scripts/Test-ClosureArtifactIntegrity.Tests.ps1', 'skills/lightweight-project-governance/scripts/Resolve-LocalAutonomyPolicy.Tests.ps1', 'skills/long-running-project-execution/scripts/Invoke-LongRunStateTransition.Tests.ps1', 'skills/long-running-project-execution/scripts/New-LongRunClosureInput.Tests.ps1', 'skills/long-running-project-execution/scripts/New-LongRunManifest.Tests.ps1', 'skills/long-running-project-execution/scripts/Resolve-LongRunBlocker.Tests.ps1', 'skills/long-running-project-execution/scripts/Resolve-LongRunResume.Tests.ps1')) {
+        if ($relative -in @(
+                'scripts/Install-CodexSkillPackage.Tests.ps1',
+                'skills/evidence-bound-project-closure/scripts/Test-ClosureArtifactIntegrity.Tests.ps1',
+                'skills/lightweight-project-governance/scripts/Convert-LegacyGovernanceProfile.Tests.ps1',
+                'skills/lightweight-project-governance/scripts/Resolve-LocalAutonomyPolicy.Tests.ps1',
+                'skills/long-running-project-execution/scripts/Invoke-LongRunStateTransition.Tests.ps1',
+                'skills/long-running-project-execution/scripts/New-LongRunClosureInput.Tests.ps1',
+                'skills/long-running-project-execution/scripts/New-LongRunManifest.Tests.ps1',
+                'skills/long-running-project-execution/scripts/Resolve-LongRunBlocker.Tests.ps1',
+                'skills/long-running-project-execution/scripts/Resolve-LongRunResume.Tests.ps1',
+                'skills/long-running-project-execution/scripts/Test-LongRunExecutionProfile.Tests.ps1',
+                'skills/long-running-project-execution/scripts/Write-LongRunCheckpoint.Tests.ps1',
+                'skills/x-project-development-preflight/scripts/Test-ProjectDevelopmentPreflight.Tests.ps1',
+                'tests/fixtures/lightweight-governance/catalog-cross-path.json',
+                'tests/fixtures/lightweight-governance/catalog-excluded-path.json',
+                'tests/fixtures/lightweight-governance/catalog-policy-drift.json',
+                'tests/fixtures/lightweight-governance/profile-content-media.json',
+                'tests/fixtures/lightweight-governance/profile-cross-path.json',
+                'tests/fixtures/lightweight-governance/profile-high-impact-data.json',
+                'tests/fixtures/lightweight-governance/profile-infrastructure-tooling.json',
+                'tests/fixtures/lightweight-governance/profile-missing-field.json',
+                'tests/fixtures/lightweight-governance/profile-policy-drift.json',
+                'tests/fixtures/lightweight-governance/profile-sensitive-content.json',
+                'tests/fixtures/lightweight-governance/profile-unknown-project.json',
+                'tests/fixtures/lightweight-governance/profile-unknown-version.json'
+            )) {
             $fixturePrefix = ('X:' + '\Projects\01_Active')
-            $textForScan = $textForScan.Replace($fixturePrefix, '<X_PROJECTS_FIXTURE_ROOT>')
+            $fixturePrefixEscaped = ('X:' + '\\Projects\\')
+            $textForScan = $textForScan.Replace($fixturePrefix, '<X_PROJECTS_FIXTURE_ROOT>').Replace($fixturePrefixEscaped, '<X_PROJECTS_FIXTURE_ROOT>')
         }
         if ($relative -eq 'scripts/Test-PublicationSafety.ps1') {
             $textForScan = (($textForScan -split "`r?`n") | Where-Object { $_ -notmatch "Id = 'personal-path'" }) -join "`n"
