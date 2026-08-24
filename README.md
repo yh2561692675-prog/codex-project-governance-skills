@@ -1,4 +1,4 @@
-# Project Development Governance Skills
+# Project Development Governance
 
 Reusable Codex Skills for making project work auditable, bounded, and recoverable. The package focuses on the parts of development that are easy to claim but hard to prove: selecting the real checkout, preserving evidence provenance, enforcing risk gates, resuming long work safely, and separating local engineering from human acceptance and formal release.
 
