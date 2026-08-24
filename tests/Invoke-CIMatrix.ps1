@@ -102,7 +102,8 @@ function Test-DocumentationSafety {
         if (-not (Assert-File -RelativePath $relative)) { continue }
         $text = Read-RepoText -RelativePath $relative
         $windowsDrivePatterns = @(('C' + ':\'), ('X' + ':\'), ('F' + ':\'))
-        foreach ($pattern in @($windowsDrivePatterns + @('/Users/', '{{', 'TBD', 'TODO'))) {
+        $unixUsersPattern = ('/' + 'Users/')
+        foreach ($pattern in @($windowsDrivePatterns + @($unixUsersPattern, '{{', 'TBD', 'TODO'))) {
             if ($text.Contains($pattern)) { $bad.Add("${relative}:$pattern") }
         }
     }
