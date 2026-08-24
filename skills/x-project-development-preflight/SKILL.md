@@ -23,7 +23,7 @@ Every preflight response fills all seven ordered slots explicitly:
 
 ## Workflow
 
-1. Read the nearest project instructions. If the target is under `F:\git仓库`, refresh and use its repository registry before selecting a checkout.
+1. Read the nearest project instructions. If the target is under the configured repository-index root, refresh and use its repository registry before selecting a checkout.
 2. Resolve the actual Git root/worktree, branch, HEAD, common Git directory, and tracked/untracked status. Do not reset, clean, stash, or change Git configuration.
 3. Read `.codex\x-drive\project-profile.json`; reject missing/invalid profiles, Git metadata outside X, and legacy/recovery roots.
 4. Determine same-worktree writers and shared-resource conflicts from current task/thread evidence. Unknown ownership is not permission to write. Do not impose a global project-count limit.
@@ -43,7 +43,7 @@ Example after observing the project checks:
 
 ```powershell
 & '.\scripts\Test-ProjectDevelopmentPreflight.ps1' `
-  -ProjectRoot 'X:\Projects\01_Active\Example\01_Workspace\worktrees\feature' `
+  -ProjectRoot '<X_PROJECT_ROOT>' `
   -ProjectedWip 2 -SameWorktreeWriterCount 0 -SharedResourceConflictCount 0 `
   -EntryExitCode 0 -ComplianceExitCode 0
 ```

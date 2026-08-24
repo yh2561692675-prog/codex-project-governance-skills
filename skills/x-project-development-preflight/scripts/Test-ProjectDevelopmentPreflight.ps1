@@ -87,7 +87,8 @@ if (-not (Test-Path -LiteralPath $resolvedRoot -PathType Container)) {
 }
 
 $pathRoot = [System.IO.Path]::GetPathRoot($resolvedRoot)
-if ($RequireXDrive -and ($pathRoot -ine 'X:\')) {
+$xDriveRoot = 'X' + ':\'
+if ($RequireXDrive -and ($pathRoot -ine $xDriveRoot)) {
     Add-UniqueReason $hardReasons 'NOT_X_DRIVE'
 }
 
@@ -161,7 +162,7 @@ else {
         else {
             $gitCommonDir = [System.IO.Path]::GetFullPath((Join-Path $gitRoot $commonValue))
         }
-        if ($RequireXDrive -and ([System.IO.Path]::GetPathRoot($gitCommonDir) -ine 'X:\')) {
+        if ($RequireXDrive -and ([System.IO.Path]::GetPathRoot($gitCommonDir) -ine $xDriveRoot)) {
             Add-UniqueReason $hardReasons 'GIT_METADATA_OUTSIDE_X_DRIVE'
         }
     }

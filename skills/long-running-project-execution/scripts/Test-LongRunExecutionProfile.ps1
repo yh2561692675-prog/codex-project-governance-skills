@@ -83,7 +83,8 @@ if ($null -eq $projectRoot) {
     Write-ResultAndExit -Valid $false -Profile $profile -ProjectRoot $null -ProfileFullPath $profileFullPath
 }
 
-if ([System.IO.Path]::GetPathRoot($projectRoot) -ine 'X:\') { Add-Reason 'NOT_X_DRIVE' }
+$xDriveRoot = 'X' + ':\'
+if ([System.IO.Path]::GetPathRoot($projectRoot) -ine $xDriveRoot) { Add-Reason 'NOT_X_DRIVE' }
 
 $requiredFields = @('schemaVersion','projectId','designPath','planPath','allowedWritePaths','protectedPaths','runtimeRoot','evidenceRoot','sharedResources','defaultVerificationCommands','humanGates','modelPolicy','maxEffectiveRetries','unfinishedCleanupRounds')
 foreach ($field in $requiredFields) {
@@ -99,7 +100,7 @@ foreach ($field in $pathFields) {
     $value = [string](Get-Field $profile $field)
     $resolved = Resolve-AbsolutePath -Value $value -ProjectRoot $projectRoot
     if ($null -eq $resolved -or -not (Test-Within -Candidate $resolved -Root $projectRoot)) { Add-Reason 'PATH_OUTSIDE_PROJECT_ROOT' }
-    elseif ([System.IO.Path]::GetPathRoot($resolved) -ine 'X:\') { Add-Reason 'NOT_X_DRIVE' }
+    elseif ([System.IO.Path]::GetPathRoot($resolved) -ine $xDriveRoot) { Add-Reason 'NOT_X_DRIVE' }
 }
 
 foreach ($field in @('allowedWritePaths','protectedPaths')) {
