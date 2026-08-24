@@ -87,7 +87,9 @@ foreach ($file in $archiveFiles) {
             $fixturePrefix = ('X:' + '\Projects\01_Active')
             $textForScan = $textForScan.Replace($fixturePrefix, '<X_PROJECTS_FIXTURE_ROOT>')
         }
-        Assert-True ($textForScan -notmatch '(?i)(?:C:\\Users\\|X:\\Projects\\|F:\\|sk-[A-Za-z0-9]{20,}|ghp_[A-Za-z0-9]{20,})') "unsafe_archive_text:$relative"
+        $xProjectsPrefix = ('X:' + '\Projects\')
+        $unsafePathPattern = '(?i)(?:C:\\Users\\|' + [regex]::Escape($xProjectsPrefix) + '|F:\\|/Users/|/home/|sk-[A-Za-z0-9]{20,}|ghp_[A-Za-z0-9]{20,})'
+        Assert-True ($textForScan -notmatch $unsafePathPattern) "unsafe_archive_text:$relative"
     }
 }
 
