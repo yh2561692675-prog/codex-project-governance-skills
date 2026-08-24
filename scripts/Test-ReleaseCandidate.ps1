@@ -83,7 +83,7 @@ foreach ($file in $archiveFiles) {
     if ($textExtensions -contains $file.Extension.ToLowerInvariant()) {
         $text = [IO.File]::ReadAllText($file.FullName, (New-Object Text.UTF8Encoding($false, $true)))
         $textForScan = $text
-        if ($relative -eq 'scripts/Install-CodexSkillPackage.Tests.ps1') {
+        if ($relative -in @('scripts/Install-CodexSkillPackage.Tests.ps1', 'skills/evidence-bound-project-closure/scripts/Test-ClosureArtifactIntegrity.Tests.ps1')) {
             $fixturePrefix = ('X:' + '\Projects\01_Active')
             $textForScan = $textForScan.Replace($fixturePrefix, '<X_PROJECTS_FIXTURE_ROOT>')
         }
