@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0",
+  "projectId": "fixture-cross-path",
+  "projectType": "content_media",
+  "gitRoot": "X:\\Projects\\Fixtures\\cross-path\\repo",
+  "gitRootVerified": true,
+  "defaultPriority": "lightweight_first",
+  "defaultReview": "disabled",
+  "allowedWritePaths": ["..\\other-project"],
+  "protectedPaths": [".git", "data", "secrets"],
+  "containsBusinessContent": false,
+  "containsPersonalData": false,
+  "containsSecrets": false,
+  "activeRunMigration": "next_fresh_run"
+}

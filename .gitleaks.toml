@@ -1,0 +1,32 @@
+title = "Project Development Governance Skills publication rules"
+
+[extend]
+useDefault = true
+
+[[rules]]
+id = "openai-api-key"
+description = "OpenAI-style API key"
+regex = '''(?i)\bsk-[A-Za-z0-9]{20,}\b'''
+keywords = ["sk-"]
+
+[[rules]]
+id = "github-token"
+description = "GitHub token"
+regex = '''(?i)\b(?:ghp|gho|ghs|ghu)_[A-Za-z0-9]{20,}\b|\bgithub_pat_[A-Za-z0-9_]{20,}\b'''
+keywords = ["ghp_", "github_pat_"]
+
+[allowlist]
+description = "Documented placeholders and internal governance records are not public release inputs. They are tracked separately by Test-PublicationSafety.ps1."
+paths = [
+  '''^docs/future-development/''',
+  '''^outputs/''',
+  '''^99_Temp/''',
+  '''^\.codex/''',
+  '''^AGENTS\.md$''',
+  '''^docs/maintenance/(current-state-ledger|source-branches)\.md$'''
+]
+regexes = [
+  '''(?i)REDACTED''',
+  '''(?i)<CODEX_HOME>''',
+  '''(?i)example\.(com|org|invalid)'''
+]

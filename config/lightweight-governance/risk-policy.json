@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "1.0",
+  "policyId": "lightweight-governance-risk-policy-v1",
+  "defaultPriority": "lightweight_first",
+  "defaultReview": "disabled",
+  "qualificationReviewDefault": "not_required",
+  "unknownRiskAction": "escalate",
+  "freshRunMigration": "next_fresh_run",
+  "stages": [
+    {
+      "id": "DEVELOP_AUTONOMOUS",
+      "humanReview": "disabled",
+      "description": "普通代码、测试、文档和匿名 fixture 自动连续开发"
+    },
+    {
+      "id": "CANDIDATE_AUTOMATED",
+      "humanReview": "disabled",
+      "description": "候选自动验证并生成可回滚证据"
+    },
+    {
+      "id": "USER_FINAL_REVIEW",
+      "humanReview": "one_final_review",
+      "decisions": ["pass", "needs_changes", "reject"],
+      "description": "候选默认只提交一次用户最终审核"
+    },
+    {
+      "id": "ESCALATED_REVIEW",
+      "humanReview": "required",
+      "description": "命中 hard trigger 或未知风险时升级并 fail-closed"
+    }
+  ],
+  "hardTriggers": [
+    {
+      "id": "formal_data",
+      "reasonCode": "RISK_FORMAL_DATA",
+      "requiredGate": "source_and_user_confirmation"
+    },
+    {
+      "id": "personal_or_student_data",
+      "reasonCode": "RISK_PERSONAL_OR_STUDENT_DATA",
+      "requiredGate": "authorized_protected_data"
+    },
+    {
+      "id": "secrets",
+      "reasonCode": "RISK_SECRET_OR_CREDENTIAL",
+      "requiredGate": "secret_handling_authorization"
+    },
+    {
+      "id": "formal_recommendation",
+      "reasonCode": "RISK_FORMAL_RECOMMENDATION",
+      "requiredGate": "human_recommendation_review"
+    },
+    {
+      "id": "production_or_publication",
+      "reasonCode": "RISK_PRODUCTION_OR_PUBLICATION",
+      "requiredGate": "release_approval"
+    },
+    {
+      "id": "paid_or_external_account",
+      "reasonCode": "RISK_PAID_OR_EXTERNAL_ACCOUNT",
+      "requiredGate": "user_external_action_approval"
+    }
+  ],
+  "reasonCodes": [
+    "PROFILE_MISSING",
+    "PROFILE_REQUIRED_FIELD_MISSING",
+    "PROFILE_SENSITIVE_CONTENT",
+    "PROFILE_SCHEMA_VERSION_UNSUPPORTED",
+    "PROJECT_ID_DUPLICATE",
+    "PROJECT_PATH_EXCLUDED",
+    "PROJECT_GIT_ROOT_INVALID",
+    "PROJECT_PROFILE_INVALID",
+    "RISK_UNKNOWN"
+  ]
+}

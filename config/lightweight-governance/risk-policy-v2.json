@@ -1,0 +1,80 @@
+{
+  "schemaVersion": "2.0",
+  "policyId": "lightweight-governance-risk-policy-v2",
+  "defaultPriority": "lightweight_first",
+  "defaultReview": "disabled",
+  "qualificationReviewDefault": "not_required",
+  "unknownRiskAction": "escalate",
+  "freshRunMigration": "next_fresh_run",
+  "deliveryMatrix": [
+    {
+      "deliveryTarget": "ENGINEERING_ONLY",
+      "releaseIntent": "NONE",
+      "reviewPolicy": "NONE",
+      "terminalState": "LOCAL_CANDIDATE_READY",
+      "requiredEvidence": ["plan", "engineering", "candidate_identity", "rollback"],
+      "notApplicableLayers": ["installation", "real_use", "human_acceptance", "formal_data", "formal_release"]
+    },
+    {
+      "deliveryTarget": "LOCAL_USABLE",
+      "releaseIntent": "NONE",
+      "reviewPolicy": "NONE_OR_OPTIONAL",
+      "terminalState": "LOCAL_USABLE_READY",
+      "requiredEvidence": ["plan", "engineering", "candidate_identity", "rollback", "installation", "local_smoke"],
+      "notApplicableLayers": ["human_acceptance", "formal_data", "formal_release"]
+    },
+    {
+      "deliveryTarget": "INTERNAL_REVIEW",
+      "releaseIntent": "NONE",
+      "reviewPolicy": "REQUIRED",
+      "terminalState": "INTERNALLY_APPLICABLE",
+      "requiredEvidence": ["plan", "engineering", "candidate_identity", "rollback", "user_final_review"],
+      "notApplicableLayers": ["formal_data", "formal_release"]
+    },
+    {
+      "deliveryTarget": "FORMAL_RELEASE",
+      "releaseIntent": "INTENDED",
+      "reviewPolicy": "REQUIRED",
+      "terminalState": "READY_FOR_USER_RELEASE_DECISION",
+      "requiredEvidence": ["plan", "engineering", "installation", "real_use", "human_acceptance", "formal_data", "user_final_review"],
+      "notApplicableLayers": []
+    }
+  ],
+  "invalidCombinations": [
+    "ENGINEERING_ONLY+INTENDED",
+    "ENGINEERING_ONLY+OPTIONAL",
+    "ENGINEERING_ONLY+REQUIRED",
+    "LOCAL_USABLE+INTENDED",
+    "INTERNAL_REVIEW+INTENDED",
+    "FORMAL_RELEASE+NONE",
+    "FORMAL_RELEASE+OPTIONAL"
+  ],
+  "autonomyExclusions": [
+    "identity_or_preflight_blocked",
+    "unknown_identity",
+    "shared_resource_conflict",
+    "destructive_action",
+    "formal_data",
+    "personal_or_student_data",
+    "secrets",
+    "formal_recommendation",
+    "production_or_publication",
+    "paid_or_external_account",
+    "unknown_risk"
+  ],
+  "stages": [
+    { "id": "DEVELOP_AUTONOMOUS", "humanReview": "disabled" },
+    { "id": "CANDIDATE_AUTOMATED", "humanReview": "disabled" },
+    { "id": "OPTIONAL_REVIEW", "humanReview": "optional" },
+    { "id": "USER_FINAL_REVIEW", "humanReview": "required" },
+    { "id": "ESCALATED_REVIEW", "humanReview": "required" }
+  ],
+  "hardTriggers": [
+    { "id": "formal_data", "reasonCode": "RISK_FORMAL_DATA", "requiredGate": "source_and_user_confirmation" },
+    { "id": "personal_or_student_data", "reasonCode": "RISK_PERSONAL_OR_STUDENT_DATA", "requiredGate": "authorized_protected_data" },
+    { "id": "secrets", "reasonCode": "RISK_SECRET_OR_CREDENTIAL", "requiredGate": "secret_handling_authorization" },
+    { "id": "formal_recommendation", "reasonCode": "RISK_FORMAL_RECOMMENDATION", "requiredGate": "human_recommendation_review" },
+    { "id": "production_or_publication", "reasonCode": "RISK_PRODUCTION_OR_PUBLICATION", "requiredGate": "release_approval" },
+    { "id": "paid_or_external_account", "reasonCode": "RISK_PAID_OR_EXTERNAL_ACCOUNT", "requiredGate": "user_external_action_approval" }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "identity": { "project": "Demo", "task": "T05-safe", "worktree": "X:/Projects/Demo/01_Workspace", "branch": "codex/demo", "commit": "abc123" },
+  "planning_status": "PASS",
+  "engineering": { "status": "PASS", "command": "pwsh ./test.ps1", "exit_code": 0, "log_path": "outputs/test.log" },
+  "installer": { "path": "", "source_commit": "", "sha256": "" },
+  "delivery_target": "ENGINEERING_ONLY",
+  "release_intent": "NONE",
+  "review_policy": "NONE",
+  "resolver": { "governance_mode": "LOCAL_AUTONOMOUS", "terminal_state": "LOCAL_CANDIDATE_READY", "required_review": false, "risk_codes": [], "layers": [
+    { "name": "formal_release", "status": "NOT_APPLICABLE", "applicability_reason": "releaseIntent=NONE" }
+  ] },
+  "preflight_status": "READY",
+  "installation_status": "NOT_APPLICABLE",
+  "real_use_status": "NOT_APPLICABLE",
+  "human_acceptance_status": "NOT_APPLICABLE",
+  "formal_data_status": "NOT_APPLICABLE",
+  "rollback_rehearsal_status": "PASS"
+}

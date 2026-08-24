@@ -1,0 +1,37 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:9c0d2c95-0e8b-4db4-aef0-6b8e9b4e1d6a",
+  "version": 1,
+  "metadata": {
+    "component": {
+      "type": "application",
+      "bom-ref": "project-development-governance-skills",
+      "name": "project-development-governance-skills",
+      "version": "0.1.0",
+      "licenses": [{ "license": { "id": "MIT" } }]
+    }
+  },
+  "components": [
+    {
+      "type": "library",
+      "bom-ref": "github-actions-checkout-v4",
+      "group": "actions",
+      "name": "checkout",
+      "version": "v4",
+      "purl": "pkg:github/actions/checkout@v4",
+      "externalReferences": [{ "type": "vcs", "url": "https://github.com/actions/checkout" }],
+      "licenses": [{ "license": { "id": "MIT" } }]
+    },
+    {
+      "type": "library",
+      "bom-ref": "github-actions-upload-artifact-v4",
+      "group": "actions",
+      "name": "upload-artifact",
+      "version": "v4",
+      "purl": "pkg:github/actions/upload-artifact@v4",
+      "externalReferences": [{ "type": "vcs", "url": "https://github.com/actions/upload-artifact" }],
+      "licenses": [{ "license": { "id": "MIT" } }]
+    }
+  ]
+}

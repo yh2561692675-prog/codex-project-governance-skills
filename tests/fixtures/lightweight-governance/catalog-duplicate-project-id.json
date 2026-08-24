@@ -1,0 +1,8 @@
+{
+  "schemaVersion": "1.0",
+  "expectedReasonCode": "PROJECT_ID_DUPLICATE",
+  "projects": [
+    { "projectId": "duplicate-project", "projectType": "content_media" },
+    { "projectId": "duplicate-project", "projectType": "infrastructure_tooling" }
+  ]
+}

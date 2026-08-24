@@ -1,0 +1,7 @@
+{
+  "project_id": "fixture-content-media",
+  "activity": "personal_content",
+  "changed_paths": ["content/draft.md"],
+  "signals": {},
+  "qualification": {}
+}

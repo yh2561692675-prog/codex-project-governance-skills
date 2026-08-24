@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "9.9",
+  "projectId": "unknown-version-project",
+  "projectType": "content_media",
+  "gitRoot": "X:\\Projects\\Fixtures\\unknown-version\\repo",
+  "gitRootVerified": true,
+  "defaultPriority": "lightweight_first",
+  "defaultReview": "disabled",
+  "allowedWritePaths": ["src"],
+  "protectedPaths": [".git"],
+  "containsBusinessContent": false,
+  "containsPersonalData": false,
+  "containsSecrets": false,
+  "activeRunMigration": "next_fresh_run",
+  "expectedReasonCode": "PROFILE_SCHEMA_VERSION_UNSUPPORTED"
+}

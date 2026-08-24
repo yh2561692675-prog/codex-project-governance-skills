@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://codex.local/schemas/project-governance-profile-v1.schema.json",
+  "title": "Project Governance Profile V1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "projectId",
+    "projectType",
+    "gitRoot",
+    "gitRootVerified",
+    "defaultPriority",
+    "defaultReview",
+    "allowedWritePaths",
+    "protectedPaths",
+    "containsBusinessContent",
+    "containsPersonalData",
+    "containsSecrets",
+    "activeRunMigration"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "1.0" },
+    "projectId": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{2,127}$"
+    },
+    "projectType": {
+      "type": "string",
+      "enum": ["high_impact_data", "content_media", "infrastructure_tooling"]
+    },
+    "gitRoot": {
+      "type": "string",
+      "pattern": "^[Xx]:[\\\\/].+"
+    },
+    "gitRootVerified": { "const": true },
+    "defaultPriority": { "const": "lightweight_first" },
+    "defaultReview": { "const": "disabled" },
+    "allowedWritePaths": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "protectedPaths": {
+      "type": "array",
+      "minItems": 1,
+      "contains": { "const": ".git" },
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "containsBusinessContent": { "const": false },
+    "containsPersonalData": { "const": false },
+    "containsSecrets": { "const": false },
+    "activeRunMigration": { "const": "next_fresh_run" }
+  }
+}

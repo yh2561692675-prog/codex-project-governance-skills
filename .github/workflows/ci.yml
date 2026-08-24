@@ -1,0 +1,64 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  contract:
+    name: ${{ matrix.id }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - id: windows-powershell-5.1
+            os: windows-latest
+            shell: powershell
+            shell_name: powershell-5.1
+          - id: windows-pwsh-7
+            os: windows-latest
+            shell: pwsh
+            shell_name: powershell-7
+          - id: ubuntu-pwsh-7
+            os: ubuntu-latest
+            shell: pwsh
+            shell_name: powershell-7
+          - id: macos-pwsh-7
+            os: macos-latest
+            shell: pwsh
+            shell_name: powershell-7
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Record shell
+        shell: ${{ matrix.shell }}
+        run: |
+          Write-Output "runner=${{ matrix.id }}"
+          $PSVersionTable | Out-String | Write-Output
+
+      - name: Run core contract
+        shell: ${{ matrix.shell }}
+        run: |
+          $artifact = Join-Path $env:GITHUB_WORKSPACE "ci-artifacts/${{ matrix.id }}"
+          & .\tests\Invoke-CIMatrix.ps1 -Mode Runner -RunnerId '${{ matrix.id }}' -ShellName '${{ matrix.shell_name }}' -ArtifactRoot $artifact
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Upload JSON and JUnit evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ci-${{ matrix.id }}
+          path: ci-artifacts/${{ matrix.id }}
+          if-no-files-found: error
+          retention-days: 14

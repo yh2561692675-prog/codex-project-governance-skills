@@ -1,0 +1,7 @@
+{
+  "project_id": "fixture-content-media",
+  "activity": "ordinary_code",
+  "changed_paths": ["src/licensed.ps1"],
+  "signals": {},
+  "qualification": {"legal": false, "license": true, "account_permission": false, "designated_role": false}
+}

@@ -1,0 +1,6 @@
+{
+  "schemaVersion": "1.0",
+  "expectedReasonCode": "PROFILE_MISSING",
+  "projectId": "missing-profile-project",
+  "profilePath": "tests/fixtures/lightweight-governance/missing-profile.json"
+}

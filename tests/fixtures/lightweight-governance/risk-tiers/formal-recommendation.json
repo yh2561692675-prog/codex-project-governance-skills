@@ -1,0 +1,7 @@
+{
+  "project_id": "fixture-high-impact-data",
+  "activity": "formal_recommendation",
+  "changed_paths": ["recommendations/output.json"],
+  "signals": {},
+  "qualification": {}
+}

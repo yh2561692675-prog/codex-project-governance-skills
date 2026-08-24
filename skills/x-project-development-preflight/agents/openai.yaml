@@ -1,0 +1,8 @@
+interface:
+  display_name: "X Project Development Preflight"
+  short_description: "Verify project identity, isolation, and X-drive readiness before development"
+  default_prompt: "Use $x-project-development-preflight to verify this project's real worktree, X-drive compliance, isolation, and evidence boundary before any development write."
+
+policy:
+  allow_implicit_invocation: true
+

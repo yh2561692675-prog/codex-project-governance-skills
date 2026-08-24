@@ -1,0 +1,7 @@
+{
+  "project_id": "fixture-content-media",
+  "activity": "ordinary_documentation",
+  "changed_paths": ["docs/example.md"],
+  "signals": {},
+  "qualification": {}
+}

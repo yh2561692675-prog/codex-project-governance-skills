@@ -1,0 +1,4 @@
+interface:
+  display_name: "科技信息板动画"
+  short_description: "将静态科技信息板制作成无残影、无裁切黑边的沉浸式纵深动画视频"
+  default_prompt: "Use $animate-tech-board to turn this static technology information board into a clean Remotion animation."

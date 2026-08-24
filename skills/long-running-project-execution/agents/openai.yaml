@@ -1,0 +1,7 @@
+interface:
+  display_name: Long-Running Project Execution
+  short_description: Execute an approved implementation plan continuously with checkpoints and bounded recovery.
+  default_prompt: >-
+    Use $long-running-project-execution with $x-project-development-preflight and
+    $project-design-plan-readiness. Verify the exact Luna/xhigh implementation
+    receipt, then execute only the approved itemized plan in dependency order.

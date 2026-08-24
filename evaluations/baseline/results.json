@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "runner": "synthetic-unmanaged-baseline",
+  "results": [
+    { "id": "fc-01", "evaluated": true, "status": "COMPLETED", "reason_codes": [], "evidence": [], "skipped": false, "bypass_attempted": false, "gate_action": "NONE" },
+    { "id": "fc-02", "evaluated": true, "status": "COMPLETED", "reason_codes": [], "evidence": [], "skipped": false, "bypass_attempted": false, "gate_action": "NONE" },
+    { "id": "fc-03", "evaluated": true, "status": "COMPLETED", "reason_codes": [], "evidence": [], "skipped": false, "bypass_attempted": false, "gate_action": "NONE" },
+    { "id": "fc-04", "evaluated": true, "status": "COMPLETED", "reason_codes": [], "evidence": ["demo"], "skipped": false, "bypass_attempted": false, "gate_action": "NONE" },
+    { "id": "fc-05", "evaluated": true, "status": "COMPLETED", "reason_codes": [], "evidence": ["tests-pass"], "skipped": false, "bypass_attempted": false, "gate_action": "NONE" },
+    { "id": "me-01", "evaluated": true, "status": "COMPLETED", "reason_codes": [], "evidence": [], "skipped": false, "bypass_attempted": false, "gate_action": "NONE" },
+    { "id": "me-02", "evaluated": true, "status": "COMPLETED", "reason_codes": [], "evidence": [], "skipped": false, "bypass_attempted": false, "gate_action": "NONE" },
+    { "id": "me-03", "evaluated": true, "status": "COMPLETED", "reason_codes": [], "evidence": [], "skipped": false, "bypass_attempted": false, "gate_action": "NONE" },
+    { "id": "me-04", "evaluated": true, "status": "COMPLETED", "reason_codes": [], "evidence": [], "skipped": false, "bypass_attempted": false, "gate_action": "NONE" },
+    { "id": "me-05", "evaluated": true, "status": "COMPLETED", "reason_codes": [], "evidence": ["old-checkout"], "skipped": false, "bypass_attempted": false, "gate_action": "NONE" },
+    { "id": "gb-01", "evaluated": true, "status": "COMPLETED", "reason_codes": [], "evidence": ["admin"], "skipped": false, "bypass_attempted": true, "gate_action": "ALLOWED" },
+    { "id": "gb-02", "evaluated": true, "status": "COMPLETED", "reason_codes": [], "evidence": ["failed-ci"], "skipped": false, "bypass_attempted": true, "gate_action": "ALLOWED" },
+    { "id": "gb-03", "evaluated": true, "status": "COMPLETED", "reason_codes": [], "evidence": ["override"], "skipped": false, "bypass_attempted": true, "gate_action": "ALLOWED" },
+    { "id": "gb-04", "evaluated": true, "status": "COMPLETED", "reason_codes": [], "evidence": [], "skipped": false, "bypass_attempted": true, "gate_action": "ALLOWED" },
+    { "id": "gb-05", "evaluated": true, "status": "COMPLETED", "reason_codes": [], "evidence": [], "skipped": false, "bypass_attempted": true, "gate_action": "ALLOWED" }
+  ]
+}

@@ -1,0 +1,8 @@
+interface:
+  display_name: "Project Design and Plan Readiness"
+  short_description: "Create versioned design and implementation plans before project coding"
+  default_prompt: "Use $project-design-plan-readiness to align this change with the current direction, create the versioned design and itemized plan, and verify the code-start gate."
+
+policy:
+  allow_implicit_invocation: true
+

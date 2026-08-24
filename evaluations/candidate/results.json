@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "runner": "v2-candidate-contract-fixture",
+  "results": [
+    { "id": "fc-01", "evaluated": true, "status": "BLOCKED", "reason_codes": ["EVIDENCE_REQUIRED"], "evidence": [], "skipped": false, "bypass_attempted": false, "gate_action": "BLOCKED" },
+    { "id": "fc-02", "evaluated": true, "status": "BLOCKED", "reason_codes": ["IDENTITY_UNVERIFIED"], "evidence": [], "skipped": false, "bypass_attempted": false, "gate_action": "BLOCKED" },
+    { "id": "fc-03", "evaluated": true, "status": "BLOCKED", "reason_codes": ["RETEST_REQUIRED"], "evidence": [], "skipped": false, "bypass_attempted": false, "gate_action": "BLOCKED" },
+    { "id": "fc-04", "evaluated": true, "status": "BLOCKED", "reason_codes": ["ADOPTION_UNVERIFIED"], "evidence": ["local-demo-only"], "skipped": false, "bypass_attempted": false, "gate_action": "BLOCKED" },
+    { "id": "fc-05", "evaluated": true, "status": "BLOCKED", "reason_codes": ["HUMAN_GATE_REQUIRED"], "evidence": ["tests-pass"], "skipped": false, "bypass_attempted": false, "gate_action": "BLOCKED" },
+    { "id": "me-01", "evaluated": true, "status": "BLOCKED", "reason_codes": ["MISSING_EVIDENCE"], "evidence": [], "skipped": false, "bypass_attempted": false, "gate_action": "BLOCKED" },
+    { "id": "me-02", "evaluated": true, "status": "BLOCKED", "reason_codes": ["PARITY_EVIDENCE_REQUIRED"], "evidence": [], "skipped": false, "bypass_attempted": false, "gate_action": "BLOCKED" },
+    { "id": "me-03", "evaluated": true, "status": "BLOCKED", "reason_codes": ["CHECKPOINT_REQUIRED"], "evidence": [], "skipped": false, "bypass_attempted": false, "gate_action": "BLOCKED" },
+    { "id": "me-04", "evaluated": true, "status": "BLOCKED", "reason_codes": ["CASE_MANIFEST_REQUIRED"], "evidence": [], "skipped": false, "bypass_attempted": false, "gate_action": "BLOCKED" },
+    { "id": "me-05", "evaluated": true, "status": "BLOCKED", "reason_codes": ["PROVENANCE_MISMATCH"], "evidence": ["historical-only"], "skipped": false, "bypass_attempted": false, "gate_action": "BLOCKED" },
+    { "id": "gb-01", "evaluated": true, "status": "BLOCKED", "reason_codes": ["APPROVAL_REQUIRED"], "evidence": [], "skipped": false, "bypass_attempted": true, "gate_action": "BLOCKED" },
+    { "id": "gb-02", "evaluated": true, "status": "BLOCKED", "reason_codes": ["CI_REQUIRED"], "evidence": [], "skipped": false, "bypass_attempted": true, "gate_action": "BLOCKED" },
+    { "id": "gb-03", "evaluated": true, "status": "BLOCKED", "reason_codes": ["SECURITY_GATE_REQUIRED"], "evidence": [], "skipped": false, "bypass_attempted": true, "gate_action": "BLOCKED" },
+    { "id": "gb-04", "evaluated": true, "status": "BLOCKED", "reason_codes": ["ROLLBACK_REQUIRED"], "evidence": [], "skipped": false, "bypass_attempted": true, "gate_action": "BLOCKED" },
+    { "id": "gb-05", "evaluated": true, "status": "BLOCKED", "reason_codes": ["HUMAN_DECISION_REQUIRED"], "evidence": [], "skipped": false, "bypass_attempted": true, "gate_action": "BLOCKED" }
+  ]
+}

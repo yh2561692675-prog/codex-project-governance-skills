@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0",
+  "projectId": "missing-field-project",
+  "gitRoot": "X:\\Projects\\Fixtures\\missing-field\\repo",
+  "gitRootVerified": true,
+  "defaultPriority": "lightweight_first",
+  "defaultReview": "disabled",
+  "allowedWritePaths": ["src"],
+  "protectedPaths": [".git"],
+  "containsBusinessContent": false,
+  "containsPersonalData": false,
+  "containsSecrets": false,
+  "activeRunMigration": "next_fresh_run",
+  "expectedReasonCode": "PROFILE_REQUIRED_FIELD_MISSING"
+}

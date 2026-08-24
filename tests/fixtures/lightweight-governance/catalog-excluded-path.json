@@ -1,0 +1,6 @@
+{
+  "schemaVersion": "1.0",
+  "expectedReasonCode": "PROJECT_PATH_EXCLUDED",
+  "projectId": "excluded-pytest-project",
+  "gitRoot": "X:\\Projects\\pytest\\repo"
+}

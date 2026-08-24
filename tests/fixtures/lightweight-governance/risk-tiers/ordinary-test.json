@@ -1,0 +1,7 @@
+{
+  "project_id": "fixture-content-media",
+  "activity": "ordinary_test",
+  "changed_paths": ["tests/example.Tests.ps1"],
+  "signals": {},
+  "qualification": {}
+}

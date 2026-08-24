@@ -1,0 +1,7 @@
+{
+  "project_id": "fixture-high-impact-data",
+  "activity": "formal_fact",
+  "changed_paths": ["facts/accepted.json"],
+  "signals": {},
+  "qualification": {}
+}

@@ -1,0 +1,9 @@
+interface:
+  display_name: "Lightweight Project Governance"
+  short_description: "Validate project governance identity and route lightweight-first execution"
+  default_prompt: >-
+    Use $lightweight-project-governance to validate the current project profile and
+    catalog identity, select the lightweight-first policy, and fail closed on
+    identity, path, hash, schema, or high-risk escalation conditions.
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,63 @@
+name: Bug report
+description: Report a reproducible problem in a governance Skill or installer.
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please remove secrets, cookies, personal data, and private repository content before submitting.
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What failed and which Skill is affected?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction
+      description: Give the smallest reproducible steps, command, and fixture inputs.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: OS, PowerShell version, branch or commit, and install mode.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Tests and evidence
+      description: Include commands, exit codes, sanitized output, and evidence-layer status.
+    validations:
+      required: true
+  - type: textarea
+    id: risk
+    attributes:
+      label: Risk and impact
+      description: Who or what could be affected? Mention security or data concerns.
+    validations:
+      required: true
+  - type: textarea
+    id: rollback
+    attributes:
+      label: Rollback or mitigation
+      description: State the reversible mitigation or why a human decision is required.
+    validations:
+      required: true

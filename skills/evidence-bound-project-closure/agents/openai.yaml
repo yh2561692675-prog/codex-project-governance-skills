@@ -1,0 +1,6 @@
+interface:
+  display_name: "Evidence-Bound Project Closure"
+  short_description: "Bind project closure to auditable evidence"
+  default_prompt: "Use $evidence-bound-project-closure to produce an evidence-bound closure and final review report."
+policy:
+  allow_implicit_invocation: true

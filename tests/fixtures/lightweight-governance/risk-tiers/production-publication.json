@@ -1,0 +1,7 @@
+{
+  "project_id": "fixture-infrastructure-tooling",
+  "activity": "production_publication",
+  "changed_paths": ["release/manifest.json"],
+  "signals": {},
+  "qualification": {}
+}

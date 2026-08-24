@@ -1,0 +1,7 @@
+{
+  "project_id": "fixture-content-media",
+  "activity": "personal_content",
+  "changed_paths": ["content/faq.md"],
+  "signals": {},
+  "qualification": {"legal": false, "license": false, "account_permission": false, "designated_role": false}
+}

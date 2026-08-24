@@ -1,0 +1,24 @@
+{
+  "adapterVersion": "1.0",
+  "adapterId": "lightweight-governance-autonomous-local-v1",
+  "profileSchema": "schemas/project-governance-profile-v1.1.schema.json",
+  "riskPolicy": "config/lightweight-governance/risk-policy-v2.json",
+  "resolver": "skills/lightweight-project-governance/scripts/Resolve-LocalAutonomyPolicy.ps1",
+  "effectiveFrom": "fresh_run_only",
+  "deliveryTargets": [
+    "ENGINEERING_ONLY",
+    "LOCAL_USABLE",
+    "INTERNAL_REVIEW",
+    "FORMAL_RELEASE"
+  ],
+  "autonomyBoundary": {
+    "safeLocalTargets": ["ENGINEERING_ONLY", "LOCAL_USABLE"],
+    "escalatedTargets": ["INTERNAL_REVIEW", "FORMAL_RELEASE"],
+    "hardExclusions": [
+      "identity_or_preflight_blocked",
+      "shared_resource_conflict",
+      "destructive_action",
+      "unknown_risk"
+    ]
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "adapter_type": "infrastructure-tooling",
+  "summary": "Default lightweight governance for infrastructure, automation, and developer tools.",
+  "default_final_review": {
+    "required": true,
+    "decision_values": ["通过", "需修改", "不通过"],
+    "human_fields": ["decision", "reviewer", "notes"]
+  },
+  "triggers": {
+    "data": ["formal_data", "personal_or_student_data"],
+    "media": ["media_ingest", "artifact_upload"],
+    "permissions": ["account_permission", "paid_or_external_account", "production_or_publication"]
+  },
+  "tests": {
+    "commands": [
+      "powershell.exe -NoProfile -ExecutionPolicy Bypass -File skills\\lightweight-project-governance\\scripts\\Convert-LegacyGovernanceProfile.Tests.ps1"
+    ],
+    "required_cases": [
+      "ordinary_path_is_lightweight",
+      "production_trigger_fails_closed",
+      "permission_trigger_requires_authorization",
+      "legacy_history_is_preserved"
+    ]
+  },
+  "rollback": {
+    "strategy": "Discard the candidate profile and keep the source tool governance unchanged.",
+    "steps": [
+      "Stop only the unaccepted migration candidate.",
+      "Do not alter production or external account state.",
+      "Resume the legacy tool and infrastructure controls."
+    ]
+  }
+}

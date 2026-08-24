@@ -1,0 +1,7 @@
+{
+  "project_id": "fixture-high-impact-data",
+  "activity": "personal_student_data",
+  "changed_paths": ["protected/records.json"],
+  "signals": {},
+  "qualification": {}
+}

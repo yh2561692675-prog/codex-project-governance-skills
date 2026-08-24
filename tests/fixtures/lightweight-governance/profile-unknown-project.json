@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0",
+  "projectId": "fixture-unknown-project",
+  "projectType": "content_media",
+  "gitRoot": "X:\\Projects\\Fixtures\\unknown-project\\repo",
+  "gitRootVerified": true,
+  "defaultPriority": "lightweight_first",
+  "defaultReview": "disabled",
+  "allowedWritePaths": ["src", "tests"],
+  "protectedPaths": [".git", "data", "secrets"],
+  "containsBusinessContent": false,
+  "containsPersonalData": false,
+  "containsSecrets": false,
+  "activeRunMigration": "next_fresh_run"
+}

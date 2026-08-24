@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "1.0",
+  "catalogId": "lightweight-governance-catalog-v1",
+  "defaultPriority": "lightweight_first",
+  "defaultReview": "disabled",
+  "unknownRisk": "escalate",
+  "freshRunMigration": "next_fresh_run",
+  "uniqueProjectId": true,
+  "projects": [
+    {
+      "projectId": "fixture-high-impact-data",
+      "projectType": "high_impact_data",
+      "profilePath": "tests/fixtures/lightweight-governance/profile-high-impact-data.json",
+      "gitRoot": "X:\\Projects\\Fixtures\\high-impact-data\\repo",
+      "gitRootVerified": true,
+      "profileSchemaVersion": "1.0",
+      "defaultPriority": "lightweight_first",
+      "defaultReview": "disabled",
+      "activeRunMigration": "next_fresh_run"
+    },
+    {
+      "projectId": "fixture-content-media",
+      "projectType": "content_media",
+      "profilePath": "tests/fixtures/lightweight-governance/profile-content-media.json",
+      "gitRoot": "X:\\Projects\\Fixtures\\content-media\\repo",
+      "gitRootVerified": true,
+      "profileSchemaVersion": "1.0",
+      "defaultPriority": "lightweight_first",
+      "defaultReview": "disabled",
+      "activeRunMigration": "next_fresh_run"
+    },
+    {
+      "projectId": "fixture-infrastructure-tooling",
+      "projectType": "infrastructure_tooling",
+      "profilePath": "tests/fixtures/lightweight-governance/profile-infrastructure-tooling.json",
+      "gitRoot": "X:\\Projects\\Fixtures\\infrastructure-tooling\\repo",
+      "gitRootVerified": true,
+      "profileSchemaVersion": "1.0",
+      "defaultPriority": "lightweight_first",
+      "defaultReview": "disabled",
+      "activeRunMigration": "next_fresh_run"
+    }
+  ]
+}

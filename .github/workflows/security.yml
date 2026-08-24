@@ -1,0 +1,39 @@
+name: Security
+
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: '17 3 * * 1'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: security-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  static:
+    name: secret and workflow policy scan
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Run static security contract
+        shell: pwsh
+        run: |
+          $artifact = Join-Path $env:GITHUB_WORKSPACE 'ci-artifacts/security'
+          & ./tests/Invoke-CIMatrix.ps1 -Mode Security -RunnerId security-static -ShellName powershell-7 -ArtifactRoot $artifact
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Upload security evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: security-static
+          path: ci-artifacts/security
+          if-no-files-found: error
+          retention-days: 14

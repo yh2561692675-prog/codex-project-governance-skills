@@ -1,0 +1,7 @@
+{
+  "project_id": "fixture-infrastructure-tooling",
+  "activity": "anonymous_fixture",
+  "changed_paths": ["tests/fixtures/example.json"],
+  "signals": {},
+  "qualification": {}
+}

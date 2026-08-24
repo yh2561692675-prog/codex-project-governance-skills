@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0",
+  "projectId": "sensitive-content-project",
+  "projectType": "content_media",
+  "gitRoot": "X:\\Projects\\Fixtures\\sensitive-content\\repo",
+  "gitRootVerified": true,
+  "defaultPriority": "lightweight_first",
+  "defaultReview": "disabled",
+  "allowedWritePaths": ["src"],
+  "protectedPaths": [".git", "secrets"],
+  "containsBusinessContent": false,
+  "containsPersonalData": false,
+  "containsSecrets": false,
+  "activeRunMigration": "next_fresh_run",
+  "businessContent": "匿名 fixture must not contain business正文",
+  "expectedReasonCode": "PROFILE_SENSITIVE_CONTENT"
+}

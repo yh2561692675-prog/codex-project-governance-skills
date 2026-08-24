@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0",
+  "projectId": "fixture-infrastructure-tooling",
+  "projectType": "infrastructure_tooling",
+  "gitRoot": "X:\\Projects\\Fixtures\\infrastructure-tooling\\repo",
+  "gitRootVerified": true,
+  "defaultPriority": "lightweight_first",
+  "defaultReview": "disabled",
+  "allowedWritePaths": ["src", "tests", "docs"],
+  "protectedPaths": [".git", "data", "media", "secrets"],
+  "containsBusinessContent": false,
+  "containsPersonalData": false,
+  "containsSecrets": false,
+  "activeRunMigration": "next_fresh_run"
+}

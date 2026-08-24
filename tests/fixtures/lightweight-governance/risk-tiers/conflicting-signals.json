@@ -1,0 +1,7 @@
+{
+  "project_id": "fixture-content-media",
+  "activity": "ordinary_code",
+  "changed_paths": ["src/conflict.ps1"],
+  "signals": {"conflict": true},
+  "qualification": {}
+}

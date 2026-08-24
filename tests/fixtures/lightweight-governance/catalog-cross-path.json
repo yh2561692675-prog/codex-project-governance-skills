@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0",
+  "catalogId": "lightweight-governance-catalog-v1",
+  "defaultPriority": "lightweight_first",
+  "defaultReview": "disabled",
+  "unknownRisk": "escalate",
+  "freshRunMigration": "next_fresh_run",
+  "uniqueProjectId": true,
+  "projects": [
+    {
+      "projectId": "fixture-cross-path",
+      "projectType": "content_media",
+      "profilePath": "tests/fixtures/lightweight-governance/profile-cross-path.json",
+      "gitRoot": "X:\\Projects\\Fixtures\\cross-path\\repo",
+      "gitRootVerified": true,
+      "profileSchemaVersion": "1.0",
+      "defaultPriority": "lightweight_first",
+      "defaultReview": "disabled",
+      "activeRunMigration": "next_fresh_run"
+    }
+  ]
+}
