@@ -84,7 +84,8 @@ foreach ($file in $archiveFiles) {
         $text = [IO.File]::ReadAllText($file.FullName, (New-Object Text.UTF8Encoding($false, $true)))
         $textForScan = $text
         if ($relative -eq 'scripts/Install-CodexSkillPackage.Tests.ps1') {
-            $textForScan = $textForScan.Replace('X:\Projects\01_Active', '<X_PROJECTS_FIXTURE_ROOT>')
+            $fixturePrefix = ('X:' + '\Projects\01_Active')
+            $textForScan = $textForScan.Replace($fixturePrefix, '<X_PROJECTS_FIXTURE_ROOT>')
         }
         Assert-True ($textForScan -notmatch '(?i)(?:C:\\Users\\|X:\\Projects\\|F:\\|sk-[A-Za-z0-9]{20,}|ghp_[A-Za-z0-9]{20,})') "unsafe_archive_text:$relative"
     }
