@@ -129,6 +129,10 @@ function Invoke-LocalContract {
     foreach ($token in $requiredCiTokens) {
         if (-not $ci.Contains($token)) { Add-Result -Name "ci-token:$token" -Status FAIL -Message 'missing' }
     }
+    $matrixShellExpressions = @([regex]::Matches($ci, '(?m)^\s*shell:\s*\$\{\{\s*matrix\.shell\s*\}\}\s*$'))
+    if ($matrixShellExpressions.Count -ne 1 -or $ci -notmatch '(?ms)defaults:\s*\r?\n\s*run:\s*\r?\n\s*shell:\s*\$\{\{\s*matrix\.shell\s*\}\}') {
+        Add-Result -Name 'ci-matrix-shell-context' -Status FAIL -Message 'matrix shell must be declared once through job defaults.run.shell'
+    }
     if ($security -notmatch 'permissions:\s*\r?\n\s*contents:\s*read') {
         Add-Result -Name 'security-permissions' -Status FAIL -Message 'contents read permission missing'
     }

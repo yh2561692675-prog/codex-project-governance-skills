@@ -19,6 +19,7 @@ All notable changes to this project are recorded here. Until a public release is
 - Cross-Shell Unicode path handling in the governance end-to-end test.
 - Behavior-evaluation content hashes now normalize UTF-8 line endings, so equivalent CRLF and LF JSON inputs remain reproducible across archive and runner environments.
 - Skill installation manifests now compute SHA-256 through .NET instead of relying on PowerShell module auto-loading.
+- GitHub Actions now declares the matrix-selected shell through job defaults, which keeps all four CI jobs valid in hosted workflow parsing.
 
 ### Not yet a release claim
 

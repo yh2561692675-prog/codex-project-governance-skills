@@ -37,18 +37,20 @@ jobs:
             shell: pwsh
             shell_name: powershell-7
 
+    defaults:
+      run:
+        shell: ${{ matrix.shell }}
+
     steps:
       - name: Check out source
         uses: actions/checkout@v4
 
       - name: Record shell
-        shell: ${{ matrix.shell }}
         run: |
           Write-Output "runner=${{ matrix.id }}"
           $PSVersionTable | Out-String | Write-Output
 
       - name: Run core contract
-        shell: ${{ matrix.shell }}
         run: |
           $artifact = Join-Path $env:GITHUB_WORKSPACE "ci-artifacts/${{ matrix.id }}"
           & .\tests\Invoke-CIMatrix.ps1 -Mode Runner -RunnerId '${{ matrix.id }}' -ShellName '${{ matrix.shell_name }}' -ArtifactRoot $artifact
