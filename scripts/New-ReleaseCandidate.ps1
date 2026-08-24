@@ -126,7 +126,7 @@ $tracked = @(Invoke-GitLines -Arguments @('ls-files'))
 $excluded = @('outputs/', 'dist/', '99_Temp/', '.codex/')
 $packageFiles = @($tracked | Where-Object {
     $path = ([string]$_).Replace('\', '/')
-    ($excluded | Where-Object { $path.StartsWith($_, [StringComparison]::OrdinalIgnoreCase) }).Count -eq 0
+    @($excluded | Where-Object { $path.StartsWith($_, [StringComparison]::OrdinalIgnoreCase) }).Count -eq 0
 })
 if ($packageFiles.Count -lt 1) { throw 'PACKAGE_FILES_EMPTY' }
 
